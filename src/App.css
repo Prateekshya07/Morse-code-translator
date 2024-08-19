@@ -1,38 +1,306 @@
+/* src/App.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+.box {
+  z-index: 2;
+  width: 45%;
+  padding: 20px;
+  margin: 10px;
   color: white;
+  font-family: Garamond, serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  backdrop-filter: blur(20px);
+  background: transparent;
 }
 
-.App-link {
-  color: #61dafb;
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(194, 194, 194, 0.3);
+  background-color: rgb(61, 60, 60);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.left-box {
+  margin-right: 5%;
+}
+
+textarea {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.output {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #e8e8e8;
+  font-size: 25px;
+  color: black;
+}
+
+/* Glowing and Bouncing Polka Dots */
+.polka-dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: bounce 8s infinite ease-in-out, glow 2s infinite alternate;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+
+  25% {
+    transform: translateY(-100vh) translateX(50vw);
   }
+
+  50% {
+    transform: translateY(50vh) translateX(-50vw);
+  }
+
+  75% {
+    transform: translateY(-50vh) translateX(-50vw);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Creating Multiple Dots with Different Sizes, Colors, and Animations */
+.polka-dot:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  background-color: #ff6f61;
+  top: 10%;
+  left: 15%;
+  animation-duration: 12s, 3s;
+}
+
+.polka-dot:nth-child(2) {
+  width: 90px;
+  height: 90px;
+  background-color: #6b5b95;
+  top: 30%;
+  left: 70%;
+  animation-duration: 16s, 2.5s;
+}
+
+.polka-dot:nth-child(3) {
+  width: 185px;
+  height: 185px;
+  background-color: #88b04b;
+  top: 60%;
+  left: 40%;
+  animation-duration: 18s, 3s;
+}
+
+.polka-dot:nth-child(4) {
+  width: 135px;
+  height: 135px;
+  background-color: #f7cac9;
+  top: 50%;
+  left: 10%;
+  animation-duration: 14s, 2.8s;
+}
+
+.polka-dot:nth-child(5) {
+  width: 115px;
+  height: 115px;
+  background-color: #92a8d1;
+  top: 80%;
+  left: 80%;
+  animation-duration: 20s, 3.5s;
+}
+
+.polka-dot:nth-child(6) {
+  width: 120px;
+  height: 120px;
+  background-color: #ff6f61;
+  top: 10%;
+  left: 15%;
+  animation-duration: 12s, 3s;
+}
+
+.polka-dot:nth-child(7) {
+  width: 90px;
+  height: 90px;
+  background-color: #6b5b95;
+  top: 30%;
+  left: 70%;
+  animation-duration: 16s, 2.5s;
+}
+
+.polka-dot:nth-child(8) {
+  width: 185px;
+  height: 185px;
+  background-color: #88b04b;
+  top: 60%;
+  left: 40%;
+  animation-duration: 18s, 3s;
+}
+
+.polka-dot:nth-child(9) {
+  width: 135px;
+  height: 135px;
+  background-color: #f7cac9;
+  top: 50%;
+  left: 10%;
+  animation-duration: 14s, 2.8s;
+}
+
+.polka-dot:nth-child(10) {
+  width: 115px;
+  height: 115px;
+  background-color: #92a8d1;
+  top: 80%;
+  left: 80%;
+  animation-duration: 20s, 3.5s;
+}
+
+.stick {
+  position: absolute;
+  width: 40px;
+  height: 300px;
+  opacity: 0.8;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: bounceStick 10s infinite ease-in-out, glow 2s infinite alternate;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+@keyframes bounceStick {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-70vh) translateX(70vw) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(-50vw) rotate(90deg);
+  }
+
+  75% {
+    transform: translateY(-30vh) translateX(-70vw) rotate(135deg);
+  }
+}
+
+/* Positioning the Stick with Different Sizes and Durations */
+.stick:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-duration: 14s, 3s;
+  background-color: #ffd700;
+}
+
+.stick:nth-child(2) {
+  top: 40%;
+  left: 60%;
+  animation-duration: 18s, 2.5s;
+  background-color: #c6c4b5;
+}
+
+.stick:nth-child(3) {
+  top: 70%;
+  left: 30%;
+  animation-duration: 16s, 3.2s;
+  background-color: #22dbd1;
+}
+
+.stick:nth-child(4) {
+  top: 20%;
+  left: 20%;
+  animation-duration: 14s, 3s;
+  background-color: #f0640d;
+}
+
+.stick:nth-child(5) {
+  top: 40%;
+  left: 60%;
+  animation-duration: 18s, 2.5s;
+  background-color: #e82d6f;
+}
+
+.stick:nth-child(6) {
+  top: 70%;
+  left: 30%;
+  animation-duration: 16s, 3.2s;
+  background-color: #ceb0f6;
+}
+
+.stick:nth-child(7) {
+  top: 20%;
+  left: 20%;
+  animation-duration: 14s, 3s;
+  background-color: #ff0000;
+}
+
+.stick:nth-child(8) {
+  top: 40%;
+  left: 60%;
+  animation-duration: 18s, 2.5s;
+  background-color: #b278ff;
+}
+
+.stick:nth-child(9) {
+  top: 70%;
+  left: 30%;
+  animation-duration: 16s, 3.2s;
+  background-color: #0011fe;
+}
+
+.stick:nth-child(10) {
+  top: 20%;
+  left: 20%;
+  animation-duration: 14s, 3s;
+  background-color: #0ab481;
+}
+
+.stick:nth-child(12) {
+  top: 40%;
+  left: 60%;
+  animation-duration: 18s, 2.5s;
+  background-color: #33ff00;
+}
+
+.stick:nth-child(13) {
+  top: 70%;
+  left: 30%;
+  animation-duration: 16s, 3.2s;
+  background-color: #f722ec;
 }
